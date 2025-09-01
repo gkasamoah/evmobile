@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "98354973212",
+    "project_id": "ev-mobile-2ab28",
+    "storage_bucket": "ev-mobile-2ab28.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:98354973212:android:1065b634614efe7cb3edd9",
+        "android_client_info": {
+          "package_name": "com.example.ev_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNdUpXkXjqUmivtUtZ0crCz2eOJwryxFo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
