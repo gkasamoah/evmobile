@@ -1,0 +1,123 @@
+import 'package:flutter/material.dart';
+
+class SideMenuScreen extends StatelessWidget {
+  const SideMenuScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              // Profile Avatar
+              const CircleAvatar(
+                radius: 40,
+                backgroundImage: AssetImage("assets/images/profile.png"), // replace with your image
+              ),
+              const SizedBox(height: 8),
+
+              // Name
+              const Text(
+                "John Doe",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 20),
+
+              // Row for QR and Payments
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  _MenuButton(
+                    icon: Icons.qr_code,
+                    label: "My Qr codes",
+                    onTap: () {
+                      // TODO: Navigate to QR screen
+                    },
+                  ),
+                  _MenuButton(
+                    icon: Icons.payment,
+                    label: "Manage payments",
+                    onTap: () {
+                      // TODO: Navigate to payments screen
+                    },
+                  ),
+                ],
+              ),
+
+              const SizedBox(height: 30),
+
+              // Menu items
+              _MenuItem(icon: Icons.person, label: "Profile", onTap: () {}),
+              _MenuItem(icon: Icons.shopping_bag, label: "Orders", onTap: () {}),
+              _MenuItem(icon: Icons.electric_car, label: "My Ev", onTap: () {}),
+              _MenuItem(icon: Icons.card_giftcard, label: "Rewards", onTap: () {}),
+              _MenuItem(
+                  icon: Icons.settings, label: "Settings and account", onTap: () {}),
+              _MenuItem(icon: Icons.logout, label: "Logout", onTap: () {}),
+              _MenuItem(icon: Icons.info, label: "About", onTap: () {}),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// Reusable Menu Button (for QR and Payments)
+class _MenuButton extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final VoidCallback onTap;
+
+  const _MenuButton({
+    required this.icon,
+    required this.label,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.green),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Icon(icon, color: Colors.green, size: 30),
+          ),
+          const SizedBox(height: 6),
+          Text(label, style: const TextStyle(fontSize: 12)),
+        ],
+      ),
+    );
+  }
+}
+
+// Reusable Menu Item (for list options)
+class _MenuItem extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final VoidCallback onTap;
+
+  const _MenuItem({
+    required this.icon,
+    required this.label,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Icon(icon, color: Colors.green),
+      title: Text(label, style: const TextStyle(fontSize: 16)),
+      onTap: onTap,
+    );
+  }
+}

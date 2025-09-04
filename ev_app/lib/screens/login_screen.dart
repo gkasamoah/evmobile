@@ -1,4 +1,7 @@
+import 'package:ev_app/screens/home_page.dart';
+import 'package:ev_app/screens/partner_registration.dart';
 import 'package:ev_app/screens/register_screen.dart';
+import 'package:ev_app/screens/sidebar_screen';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -96,8 +99,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text("Login successful!")),
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const HomeScreen()),
                           );
                         }
                       },
